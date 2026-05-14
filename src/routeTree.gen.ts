@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ManifiestoRouteImport } from './routes/manifiesto'
+import { Route as HistoriasRouteImport } from './routes/historias'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as CausaRouteImport } from './routes/causa'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ManifiestoRoute = ManifiestoRouteImport.update({
+  id: '/manifiesto',
+  path: '/manifiesto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriasRoute = HistoriasRouteImport.update({
+  id: '/historias',
+  path: '/historias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CausaRoute = CausaRouteImport.update({
+  id: '/causa',
+  path: '/causa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/causa': typeof CausaRoute
+  '/contacto': typeof ContactoRoute
+  '/historias': typeof HistoriasRoute
+  '/manifiesto': typeof ManifiestoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/causa': typeof CausaRoute
+  '/contacto': typeof ContactoRoute
+  '/historias': typeof HistoriasRoute
+  '/manifiesto': typeof ManifiestoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/causa': typeof CausaRoute
+  '/contacto': typeof ContactoRoute
+  '/historias': typeof HistoriasRoute
+  '/manifiesto': typeof ManifiestoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
+  id: '__root__' | '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CausaRoute: typeof CausaRoute
+  ContactoRoute: typeof ContactoRoute
+  HistoriasRoute: typeof HistoriasRoute
+  ManifiestoRoute: typeof ManifiestoRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/manifiesto': {
+      id: '/manifiesto'
+      path: '/manifiesto'
+      fullPath: '/manifiesto'
+      preLoaderRoute: typeof ManifiestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historias': {
+      id: '/historias'
+      path: '/historias'
+      fullPath: '/historias'
+      preLoaderRoute: typeof HistoriasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/causa': {
+      id: '/causa'
+      path: '/causa'
+      fullPath: '/causa'
+      preLoaderRoute: typeof CausaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +121,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CausaRoute: CausaRoute,
+  ContactoRoute: ContactoRoute,
+  HistoriasRoute: HistoriasRoute,
+  ManifiestoRoute: ManifiestoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
