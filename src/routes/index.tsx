@@ -28,22 +28,25 @@ const stats = [
 
 const stories = [
   {
-    img: farmer,
-    place: "Teruel · Aragón",
-    title: "Manuel, el último que riega la huerta",
-    excerpt: "A sus 78 años abre la acequia cada mañana. «Si yo paro, esto se seca en una semana».",
+    img: hero,
+    place: "La Siberia · Badajoz",
+    title: "El Mirador de la Virgen de la Hoz",
+    excerpt:
+      "La comarca extremeña de La Siberia, Reserva de la Biosfera desde 2019, no llega a 8 hab/km². Desde el mirador sobre el embalse de Cíjara se ven veinte kilómetros de monte sin una sola luz.",
   },
   {
-    img: school,
-    place: "Sanabria · Zamora",
-    title: "Una escuela que cerró un martes",
-    excerpt: "Tres niños no fueron suficientes. La maestra apagó la luz y nadie volvió a encenderla.",
+    img: sanabria,
+    place: "Puebla de Sanabria · Zamora",
+    title: "La provincia que más se ha vaciado",
+    excerpt:
+      "Zamora ha perdido el 16% de su población desde 2000 (INE). En Sanabria quedan pueblos con menos de diez vecinos en invierno.",
   },
   {
-    img: fields,
-    place: "Jaén · Andalucía",
-    title: "El olivar que resiste al precio del aceite",
-    excerpt: "Cooperativas que se asocian para no rendirse ante la gran distribución.",
+    img: olivar,
+    place: "Sierra de Jaén · Andalucía",
+    title: "El olivar tradicional contra el precio del aceite",
+    excerpt:
+      "300.000 hectáreas de olivar de pendiente. Cada campaña por debajo de coste expulsa a 2.000 pequeños propietarios.",
   },
 ];
 
@@ -66,8 +69,7 @@ function Home() {
             Alguien deja de mirarlos.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/75">
-            Mirada Rural recoge las historias, los datos y las voces que no salen en
-            las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
+            Desde el Mirador de la Virgen de la Hoz, en La Siberia extremeña, hasta los Ancares lucenses: recogemos las historias, los datos y las voces que no salen en las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/historias" className="rounded-sm bg-primary px-7 py-3.5 text-sm uppercase tracking-[0.18em] text-primary-foreground transition hover:bg-primary/90">
