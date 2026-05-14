@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import hero from "@/assets/real/cijara.jpg";
-import albarracin from "@/assets/real/albarracin.jpg";
 import sanabria from "@/assets/real/sanabria.jpg";
 import olivar from "@/assets/real/olivar.png";
 
