@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { getStory, stories } from "@/data/stories";
+import { getStory, stories, type Story } from "@/data/stories";
 
 export const Route = createFileRoute("/historias/$slug")({
   component: StoryDetail,
