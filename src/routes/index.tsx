@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import hero from "@/assets/real/cijara.jpg";
-import sanabria from "@/assets/real/sanabria.jpg";
-import olivar from "@/assets/real/olivar.png";
+import hero from "@/assets/real/virgen-hoz.jpg";
+import { stories } from "@/data/stories";
+
+const featured = stories.slice(0, 3);
 
 export const Route = createFileRoute("/")({
   component: Home,
