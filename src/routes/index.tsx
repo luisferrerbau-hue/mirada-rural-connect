@@ -26,29 +26,6 @@ const stats = [
   { num: "−12%", label: "población rural en 20 años" },
 ];
 
-const stories = [
-  {
-    img: hero,
-    place: "La Siberia · Badajoz",
-    title: "El Mirador de la Virgen de la Hoz",
-    excerpt:
-      "La comarca extremeña de La Siberia, Reserva de la Biosfera desde 2019, no llega a 8 hab/km². Desde el mirador sobre el embalse de Cíjara se ven veinte kilómetros de monte sin una sola luz.",
-  },
-  {
-    img: sanabria,
-    place: "Puebla de Sanabria · Zamora",
-    title: "La provincia que más se ha vaciado",
-    excerpt:
-      "Zamora ha perdido el 16% de su población desde 2000 (INE). En Sanabria quedan pueblos con menos de diez vecinos en invierno.",
-  },
-  {
-    img: olivar,
-    place: "Sierra de Jaén · Andalucía",
-    title: "El olivar tradicional contra el precio del aceite",
-    excerpt:
-      "300.000 hectáreas de olivar de pendiente. Cada campaña por debajo de coste expulsa a 2.000 pequeños propietarios.",
-  },
-];
 
 function Home() {
   return (
