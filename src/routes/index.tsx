@@ -97,15 +97,15 @@ function Home() {
           </Link>
         </div>
         <div className="grid gap-10 md:grid-cols-3">
-          {stories.map((s) => (
-            <article key={s.title} className="group">
+          {featured.map((s) => (
+            <Link to="/historias/$slug" params={{ slug: s.slug }} key={s.slug} className="group block">
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={s.img} alt="" loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
               </div>
               <p className="mt-5 text-xs uppercase tracking-[0.3em] text-secondary">{s.place}</p>
               <h3 className="mt-3 font-serif text-2xl leading-snug">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.excerpt}</p>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
