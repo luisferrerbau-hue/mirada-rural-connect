@@ -14,6 +14,7 @@ import { Route as HistoriasRouteImport } from './routes/historias'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CausaRouteImport } from './routes/causa'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HistoriasSlugRouteImport } from './routes/historias.$slug'
 
 const ManifiestoRoute = ManifiestoRouteImport.update({
   id: '/manifiesto',
@@ -40,42 +41,69 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HistoriasSlugRoute = HistoriasSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HistoriasRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/causa': typeof CausaRoute
   '/contacto': typeof ContactoRoute
-  '/historias': typeof HistoriasRoute
+  '/historias': typeof HistoriasRouteWithChildren
   '/manifiesto': typeof ManifiestoRoute
+  '/historias/$slug': typeof HistoriasSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/causa': typeof CausaRoute
   '/contacto': typeof ContactoRoute
-  '/historias': typeof HistoriasRoute
+  '/historias': typeof HistoriasRouteWithChildren
   '/manifiesto': typeof ManifiestoRoute
+  '/historias/$slug': typeof HistoriasSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/causa': typeof CausaRoute
   '/contacto': typeof ContactoRoute
-  '/historias': typeof HistoriasRoute
+  '/historias': typeof HistoriasRouteWithChildren
   '/manifiesto': typeof ManifiestoRoute
+  '/historias/$slug': typeof HistoriasSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
+  fullPaths:
+    | '/'
+    | '/causa'
+    | '/contacto'
+    | '/historias'
+    | '/manifiesto'
+    | '/historias/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
-  id: '__root__' | '/' | '/causa' | '/contacto' | '/historias' | '/manifiesto'
+  to:
+    | '/'
+    | '/causa'
+    | '/contacto'
+    | '/historias'
+    | '/manifiesto'
+    | '/historias/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/causa'
+    | '/contacto'
+    | '/historias'
+    | '/manifiesto'
+    | '/historias/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CausaRoute: typeof CausaRoute
   ContactoRoute: typeof ContactoRoute
-  HistoriasRoute: typeof HistoriasRoute
+  HistoriasRoute: typeof HistoriasRouteWithChildren
   ManifiestoRoute: typeof ManifiestoRoute
 }
 
@@ -116,16 +144,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/historias/$slug': {
+      id: '/historias/$slug'
+      path: '/$slug'
+      fullPath: '/historias/$slug'
+      preLoaderRoute: typeof HistoriasSlugRouteImport
+      parentRoute: typeof HistoriasRoute
+    }
   }
 }
+
+interface HistoriasRouteChildren {
+  HistoriasSlugRoute: typeof HistoriasSlugRoute
+}
+
+const HistoriasRouteChildren: HistoriasRouteChildren = {
+  HistoriasSlugRoute: HistoriasSlugRoute,
+}
+
+const HistoriasRouteWithChildren = HistoriasRoute._addFileChildren(
+  HistoriasRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CausaRoute: CausaRoute,
   ContactoRoute: ContactoRoute,
-  HistoriasRoute: HistoriasRoute,
+  HistoriasRoute: HistoriasRouteWithChildren,
   ManifiestoRoute: ManifiestoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
