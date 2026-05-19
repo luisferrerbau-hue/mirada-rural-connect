@@ -16,8 +16,8 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Mirada Rural" className="h-10 w-auto" />
           <span className="hidden font-serif text-lg tracking-tight sm:block">
-            <span className="text-primary">mirada</span>{" "}
-            <span className="text-secondary">rural</span>
+            <span className="text-primary">Mirada</span>{" "}
+            <span className="text-secondary">Rural</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
