@@ -46,7 +46,7 @@ export const Route = createFileRoute("/historias/$slug")({
 });
 
 function StoryDetail() {
-  const { story } = Route.useLoaderData();
+  const { story } = Route.useLoaderData() as { story: Story };
   const others = stories.filter((s) => s.slug !== story.slug).slice(0, 3);
 
   return (
