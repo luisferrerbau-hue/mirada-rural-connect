@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import hero from "@/assets/real/cijara.jpg";
-import sanabria from "@/assets/real/sanabria.jpg";
-import olivar from "@/assets/real/olivar.png";
+import hero from "@/assets/real/virgen-hoz.jpg";
+import { stories } from "@/data/stories";
+
+const featured = stories.slice(0, 3);
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -25,29 +26,6 @@ const stats = [
   { num: "−12%", label: "población rural en 20 años" },
 ];
 
-const stories = [
-  {
-    img: hero,
-    place: "La Siberia · Badajoz",
-    title: "El Mirador de la Virgen de la Hoz",
-    excerpt:
-      "La comarca extremeña de La Siberia, Reserva de la Biosfera desde 2019, no llega a 8 hab/km². Desde el mirador sobre el embalse de Cíjara se ven veinte kilómetros de monte sin una sola luz.",
-  },
-  {
-    img: sanabria,
-    place: "Puebla de Sanabria · Zamora",
-    title: "La provincia que más se ha vaciado",
-    excerpt:
-      "Zamora ha perdido el 16% de su población desde 2000 (INE). En Sanabria quedan pueblos con menos de diez vecinos en invierno.",
-  },
-  {
-    img: olivar,
-    place: "Sierra de Jaén · Andalucía",
-    title: "El olivar tradicional contra el precio del aceite",
-    excerpt:
-      "300.000 hectáreas de olivar de pendiente. Cada campaña por debajo de coste expulsa a 2.000 pequeños propietarios.",
-  },
-];
 
 function Home() {
   return (
@@ -68,7 +46,7 @@ function Home() {
             Alguien deja de mirarlos.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/75">
-            Desde el Mirador de la Virgen de la Hoz, en La Siberia extremeña, hasta los Ancares lucenses: recogemos las historias, los datos y las voces que no salen en las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
+            Desde el Mirador de la Virgen de la Hoz, en el Señorío de Molina (Guadalajara), hasta los Ancares lucenses: en Mirada Rural recogemos las historias, los datos y las voces que no salen en las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/historias" className="rounded-sm bg-primary px-7 py-3.5 text-sm uppercase tracking-[0.18em] text-primary-foreground transition hover:bg-primary/90">
@@ -119,15 +97,15 @@ function Home() {
           </Link>
         </div>
         <div className="grid gap-10 md:grid-cols-3">
-          {stories.map((s) => (
-            <article key={s.title} className="group">
+          {featured.map((s) => (
+            <Link to="/historias/$slug" params={{ slug: s.slug }} key={s.slug} className="group block">
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={s.img} alt="" loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+                <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
               </div>
               <p className="mt-5 text-xs uppercase tracking-[0.3em] text-secondary">{s.place}</p>
               <h3 className="mt-3 font-serif text-2xl leading-snug">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.excerpt}</p>
-            </article>
+            </Link>
           ))}
         </div>
       </section>

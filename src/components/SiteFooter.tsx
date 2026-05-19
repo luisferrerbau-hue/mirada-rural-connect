@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
             <img src={logo} alt="" className="h-12 w-auto brightness-0 invert opacity-90" />
-            <span className="font-serif text-xl">mirada rural</span>
+            <span className="font-serif text-xl">Mirada Rural</span>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
             Damos voz al medio rural. Una mirada honesta a los pueblos que se vacían,
