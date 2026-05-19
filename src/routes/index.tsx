@@ -46,7 +46,7 @@ function Home() {
             Alguien deja de mirarlos.
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-foreground/75">
-            Desde el Mirador de la Virgen de la Hoz, en La Siberia extremeña, hasta los Ancares lucenses: recogemos las historias, los datos y las voces que no salen en las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
+            Desde el Mirador de la Virgen de la Hoz, en el Señorío de Molina (Guadalajara), hasta los Ancares lucenses: en Mirada Rural recogemos las historias, los datos y las voces que no salen en las noticias. Para que el campo deje de ser paisaje y vuelva a ser país.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link to="/historias" className="rounded-sm bg-primary px-7 py-3.5 text-sm uppercase tracking-[0.18em] text-primary-foreground transition hover:bg-primary/90">
