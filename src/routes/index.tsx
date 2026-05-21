@@ -4,7 +4,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import hero from "@/assets/real/virgen-hoz.jpg";
 import { stories } from "@/data/stories";
 
-const featured = stories.slice(0, 3);
+const featured = stories.slice(0, 6);
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -96,14 +96,14 @@ function Home() {
             Ver todas →
           </Link>
         </div>
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((s) => (
             <Link to="/historias/$slug" params={{ slug: s.slug }} key={s.slug} className="group block">
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden rounded-sm bg-muted">
                 <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
               </div>
               <p className="mt-5 text-xs uppercase tracking-[0.3em] text-secondary">{s.place}</p>
-              <h3 className="mt-3 font-serif text-2xl leading-snug">{s.title}</h3>
+              <h3 className="mt-3 font-serif text-xl leading-snug sm:text-2xl">{s.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.excerpt}</p>
             </Link>
           ))}

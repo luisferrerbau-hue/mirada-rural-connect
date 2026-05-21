@@ -16,6 +16,7 @@ export const Route = createFileRoute("/manifiesto")({
 });
 
 const points = [
+  "Detrás de cada cifra hay una cocina encendida, una panadería que cierra, una abuela que aprende a usar el videobanco.",
   "Creemos que un pueblo de quince habitantes vale lo mismo que un barrio de quince mil.",
   "Defendemos el derecho a quedarse, a volver y a llegar por primera vez.",
   "No romantizamos la pobreza: exigimos servicios, no postales.",

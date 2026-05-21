@@ -8,7 +8,7 @@ export const Route = createFileRoute("/historias")({
   head: () => ({
     meta: [
       { title: "Historias — Mirada Rural" },
-      { name: "description", content: "Crónicas reales desde los pueblos: Señorío de Molina, Sanabria, Albarracín, Jaén, O Cebreiro y la Serranía de Cuenca." },
+      { name: "description", content: "13 crónicas periodísticas sobre despoblación rural en España: Molina, Sanabria, Albarracín, Jaén, O Cebreiro, Cuenca, Ansias, Tarazona, Sorbillán, Chinchilla, Tordesillas y más." },
       { property: "og:title", content: "Historias — Mirada Rural" },
       { property: "og:url", content: "/historias" },
     ],
