@@ -16,13 +16,13 @@ export const Route = createFileRoute("/manifiesto")({
 });
 
 const points = [
-  "Detrás de cada cifra hay una cocina encendida, una panadería que cierra, una abuela que aprende a usar el videobanco.",
-  "Creemos que un pueblo de quince habitantes vale lo mismo que un barrio de quince mil.",
-  "Defendemos el derecho a quedarse, a volver y a llegar por primera vez.",
-  "No romantizamos la pobreza: exigimos servicios, no postales.",
-  "Escuchamos antes de contar. Las historias no son nuestras, son prestadas.",
-  "Pensamos que cuidar la tierra es cuidar a quien la trabaja.",
-  "Sabemos que mirar es político. Mirar al campo, también.",
+  "Detrás de cada cifra de despoblación hay historias: una cocina que se apaga, una panadería que cierra, una abuela que aprende a usar el videobanco porque ya no hay empleada de banco en el pueblo.",
+  "Creemos que un pueblo de quince habitantes merece la misma dignidad institucional que un barrio de quince mil. Un niño de Riomanzanas tiene derecho a la misma calidad educativa que uno de Madrid.",
+  "Defendemos el derecho a tres decisiones vitales que hoy están negadas: el derecho a quedarse sin sacrificar futuro, el derecho a volver con oportunidades, y el derecho a llegar por primera vez a un pueblo que tenga servicios.",
+  "No romantizamos la ruralidad: rechazamos la pobreza como destino. Exigimos autopistas, hospitales, colegios e internet. Las postales no alimentan a nadie.",
+  "Escuchamos antes de contar historias. Nuestras crónicas no son nuestras: son prestadas de quienes viven en los pueblos. Somos altavoz, no autores.",
+  "Pensar que cuidar la tierra es cuidar a quien la trabaja. No hay agricultura sin agricultores vivos. No hay pastores, no hay trashumancia. No hay trashumancia, no hay paisaje.",
+  "Sabemos que mirar es un acto político. Mirar al campo sin mirar su economía es complicidad. Documentar sin proponer es cobardía. Nosotros miramos para cambiar.",
 ];
 
 function Manifiesto() {
